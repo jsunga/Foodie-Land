@@ -40,7 +40,7 @@ const Recipes = props => {
     return (
         <>
             {props.recipes.map(item => (
-                <Container key={item.id}>
+                <Container key={item.recipe_id} onClick={() => props.fetchIngredients(item.recipe_id)}>
                     <ImageContainer><Image src={item.image_url} height='100px' width='100px' alt='pic' /></ImageContainer>
                     <section>
                         <Title>{item.title}</Title>
