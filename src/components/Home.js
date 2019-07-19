@@ -117,10 +117,16 @@ export default class Home extends Component {
             details: null
         })
         let results = await axios.get(`https://www.food2fork.com/api/search?key=cfd0dbfdedacffdf0230ca682daf24ab&q=${this.state.input}`)
-        this.setState({
-            recipes: results.data.recipes,
-            isLoading: false
-        })
+        if (results.data.error === 'limit') {
+            alert('Sorry! API usage limit exceeded.')
+            this.setState({isLoading: false})
+        }
+        else {
+            this.setState({
+                recipes: results.data.recipes,
+                isLoading: false
+            })
+        }
     }
 
     fetchIngredients = async id => {
