@@ -101,6 +101,12 @@ const Results = styled.div`
     overflow-y: auto;
 `
 
+const NoResults = styled.h1`
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #F59683;
+    padding-left: 30px;
+`
+
 export default class Home extends Component {
 
     state = {
@@ -108,6 +114,7 @@ export default class Home extends Component {
         details: null,
         recipes: [],
         isLoading: false,
+        noResults: false,
     }
 
     fetchRecipes = async e => {
@@ -116,13 +123,22 @@ export default class Home extends Component {
             isLoading: true,
             details: null
         })
-        let results = await axios.get(`https://www.food2fork.com/api/search?key=cfd0dbfdedacffdf0230ca682daf24ab&q=${this.state.input}`)
+        let results = await axios.get(`https://www.food2fork.com/api/search?key=7a9780f5e720cc26d546e67f9d40aaea&q=${this.state.input}`)
+        console.log(results.data)
         if (results.data.error === 'limit') {
             alert('Sorry! API usage limit exceeded.')
             this.setState({isLoading: false})
         }
+        else if (results.data.recipes.length === 0) {
+            this.setState({
+                noResults: true,
+                recipes: [],
+                isLoading: false
+            })
+        }
         else {
             this.setState({
+                noResults: false,
                 recipes: results.data.recipes,
                 isLoading: false
             })
@@ -131,7 +147,7 @@ export default class Home extends Component {
 
     fetchIngredients = async id => {
         this.setState({isLoading: true})
-        let results = await axios.get(`https://www.food2fork.com/api/get?key=cfd0dbfdedacffdf0230ca682daf24ab&rId=${id}`)
+        let results = await axios.get(`https://www.food2fork.com/api/get?key=7a9780f5e720cc26d546e67f9d40aaea&rId=${id}`)
         this.setState({
             details: results.data.recipe,
             isLoading: false,
@@ -161,6 +177,7 @@ export default class Home extends Component {
                     <Content>
                         <Results>
                             <Recipes recipes={this.state.recipes} fetchIngredients={this.fetchIngredients} />
+                            {this.state.noResults ? <NoResults>No Results..</NoResults> : null}
                         </Results>
                             {this.state.details ? <Ingredients details={this.state.details} /> : <PlaceHolder />}
                     </Content>
