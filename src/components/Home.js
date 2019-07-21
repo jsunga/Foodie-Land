@@ -124,7 +124,6 @@ export default class Home extends Component {
             details: null
         })
         let results = await axios.get(`https://www.food2fork.com/api/search?key=7a9780f5e720cc26d546e67f9d40aaea&q=${this.state.input}`)
-        console.log(results.data)
         if (results.data.error === 'limit') {
             alert('Sorry! API usage limit exceeded.')
             this.setState({isLoading: false})
@@ -164,6 +163,7 @@ export default class Home extends Component {
                                 placeholder='Search over 1,000,000 recipes..'
                                 value={this.state.input}
                                 onChange={e => this.setState({input: e.target.value})}
+                                onClick={() => this.setState({input: ''})}
                             />
                             <Button>Search</Button>
                         </Form>
