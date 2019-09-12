@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Foodie-Land/static/css/main.53fbf715.chunk.css",
+    "main.js": "/Foodie-Land/static/js/main.f5149f7c.chunk.js",
+    "main.js.map": "/Foodie-Land/static/js/main.f5149f7c.chunk.js.map",
+    "runtime~main.js": "/Foodie-Land/static/js/runtime~main.8bc56bc3.js",
+    "runtime~main.js.map": "/Foodie-Land/static/js/runtime~main.8bc56bc3.js.map",
+    "static/css/2.5ec480d0.chunk.css": "/Foodie-Land/static/css/2.5ec480d0.chunk.css",
+    "static/js/2.fb3ef7f0.chunk.js": "/Foodie-Land/static/js/2.fb3ef7f0.chunk.js",
+    "static/js/2.fb3ef7f0.chunk.js.map": "/Foodie-Land/static/js/2.fb3ef7f0.chunk.js.map",
+    "index.html": "/Foodie-Land/index.html",
+    "precache-manifest.c45055f89a0ed0ce5f6bd9b28edcf2de.js": "/Foodie-Land/precache-manifest.c45055f89a0ed0ce5f6bd9b28edcf2de.js",
+    "service-worker.js": "/Foodie-Land/service-worker.js",
+    "static/css/2.5ec480d0.chunk.css.map": "/Foodie-Land/static/css/2.5ec480d0.chunk.css.map",
+    "static/css/main.53fbf715.chunk.css.map": "/Foodie-Land/static/css/main.53fbf715.chunk.css.map"
+  }
+}
